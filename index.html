@@ -1,1519 +1,357 @@
-```html
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>RISE // GRIND | Sports Motivation</title>
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demo</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial,sans-serif;
+}
+
+body{
+  background:#0f1020;
+  color:white;
+}
+
+.container{
+  display:flex;
+  flex-direction:row-reverse;
+  min-height:100vh;
+}
+
+.demo{
+  width:70%;
+  background:#111;
+  position:relative;
+}
+
+iframe{
+  width:100%;
+  height:100vh;
+  border:none;
+}
+
+.right{
+  width:30%;
+  padding:30px 22px;
+  background:linear-gradient(180deg,#181a35,#0b0c18);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow-y:auto;
+}
+
+.box{
+  width:100%;
+  background:rgba(10,10,10,.88);
+  border:1px solid #d4af37;
+  border-radius:22px;
+  padding:26px 20px;
+  text-align:center;
+  box-shadow:0 0 35px rgba(212,175,55,.28);
+}
+
+.badge{
+  display:inline-block;
+  background:#d4af37;
+  color:#111;
+  padding:8px 18px;
+  border-radius:30px;
+  font-weight:800;
+  margin-bottom:16px;
+}
+
+h1{
+  font-size:34px;
+  color:#ffd86b;
+  margin-bottom:10px;
+  text-transform:uppercase;
+}
+
+.sub{
+  font-size:17px;
+  line-height:1.5;
+  margin-bottom:22px;
+  color:#eee;
+}
+
+.features{
+  display:grid;
+  gap:12px;
+  margin:22px 0;
+}
+
+.feature{
+  background:linear-gradient(90deg,#1b1b1b,#2b2208);
+  border:1px solid rgba(212,175,55,.55);
+  padding:14px;
+  border-radius:14px;
+  font-size:17px;
+  font-weight:700;
+}
+
+.feature span{
+  color:#ffd86b;
+}
+
+/* Signup Button */
+.signup-btn{
+  display:inline-block;
+  margin-top:8px;
+  padding:9px 16px;
+  background:#25D366;
+  color:#fff;
+  text-decoration:none;
+  border-radius:9px;
+  font-size:15px;
+  font-weight:800;
+  border:1px solid #1ebe5d;
+  transition:.3s;
+}
+
+.signup-btn:hover{
+  background:#1ebe5d;
+  transform:scale(1.03);
+}
+
+.website-row{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:10px;
+  margin-top:16px;
+  font-size:14px;
+  font-weight:bold;
+}
+
+.website-row a{
+  text-decoration:none;
+}
+
+.website{
+  color:#25D366;
+}
+
+.whatsapp-small{
+  color:#ffd86b;
+}
+
+.cta{
+  display:block;
+  background:#25D366;
+  color:#fff;
+  text-decoration:none;
+  padding:17px;
+  border-radius:16px;
+  font-size:20px;
+  font-weight:900;
+  margin-top:22px;
+  box-shadow:0 8px 18px rgba(37,211,102,.35);
+  transition:.3s;
+}
+
+.cta:hover{
+  transform:scale(1.03);
+  background:#1ebe5d;
+}
+
+/* Floating Signup Button */
+.floating-signup{
+  position:absolute;
+  top:20px;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:50;
+  background:#ff1744;
+  color:#fff;
+  padding:12px 24px;
+  border-radius:8px;
+  font-size:18px;
+  font-weight:900;
+  border:3px solid #fff;
+  cursor:pointer;
+  box-shadow:0 8px 20px rgba(255,23,68,0.6);
+  transition:.3s;
+  text-decoration:none;
+  display:inline-block;
+}
+
+.floating-signup:hover{
+  transform:translateX(-50%) scale(1.08);
+  background:#ff5722;
+  box-shadow:0 12px 25px rgba(255,23,68,0.8);
+}
+
+.trust{
+  margin-top:16px;
+  color:#ccc;
+  font-size:14px;
+  line-height:1.5;
+}
+
+.footer{
+  margin-top:18px;
+  font-size:12px;
+  color:#aaa;
+  line-height:1.5;
+}
+
+@media(max-width:768px){
+  .container{
+    flex-direction:column-reverse;
+  }
+
+  .demo,
+  .right{
+    width:100%;
+  }
+
+  iframe{
+    height:500px;
+  }
+
+  .right{
+    padding:20px;
+  }
+}
+
+@media(max-width:480px){
+  h1{
+    font-size:28px;
+  }
+
+  .sub{
+    font-size:16px;
+  }
+
+  .feature{
+    font-size:16px;
+    padding:12px;
+  }
+
+  .signup-btn{
+    font-size:14px;
+    padding:8px 13px;
+  }
+
+  .cta{
+    font-size:18px;
+    padding:15px;
+  }
+
+  .website-row{
+    flex-direction:column;
+    gap:8px;
+  }
+}
+</style>
 
-    body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #0b0d0f;
-      color: #fff;
-      line-height: 1.6;
-    }
-
-    /* =========================
-       HEADER
-    ========================== */
-
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-
-      background: rgba(10, 12, 14, 0.96);
-      backdrop-filter: blur(12px);
-
-      border-bottom: 1px solid #292d31;
-
-      padding: 18px 7%;
-
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-size: 25px;
-      font-weight: 900;
-      letter-spacing: 2px;
-    }
-
-    .logo span {
-      color: #ff4d00;
-    }
-
-    nav {
-      display: flex;
-      gap: 25px;
-    }
-
-    nav a {
-      color: #ddd;
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-
-    nav a:hover {
-      color: #ff4d00;
-    }
-
-    /* =========================
-       HERO
-    ========================== */
-
-    .hero {
-      min-height: 700px;
-
-      display: flex;
-      align-items: center;
-
-      padding: 100px 7%;
-
-      background:
-        linear-gradient(
-          90deg,
-          rgba(5, 7, 9, 0.96) 0%,
-          rgba(5, 7, 9, 0.78) 45%,
-          rgba(5, 7, 9, 0.25) 100%
-        ),
-        url("https://images.unsplash.com/photo-1461896836934-ffe607ba8211")
-        center/cover;
-    }
-
-    .hero-content {
-      max-width: 800px;
-    }
-
-    .tag {
-      display: inline-block;
-
-      padding: 7px 14px;
-
-      border: 1px solid #ff4d00;
-
-      color: #ff4d00;
-
-      font-size: 12px;
-      font-weight: bold;
-
-      letter-spacing: 2px;
-
-      margin-bottom: 20px;
-    }
-
-    .hero h1 {
-      font-size: clamp(50px, 8vw, 100px);
-
-      line-height: 0.95;
-
-      text-transform: uppercase;
-
-      font-weight: 900;
-
-      letter-spacing: -4px;
-    }
-
-    .hero h1 span {
-      color: #ff4d00;
-    }
-
-    .hero p {
-      max-width: 650px;
-
-      color: #ddd;
-
-      font-size: 19px;
-
-      margin: 30px 0;
-    }
-
-    .buttons {
-      display: flex;
-
-      gap: 15px;
-
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      display: inline-block;
-
-      padding: 14px 25px;
-
-      background: #ff4d00;
-
-      color: white;
-
-      text-decoration: none;
-
-      font-weight: bold;
-
-      border-radius: 4px;
-
-      transition: 0.3s;
-    }
-
-    .btn:hover {
-      background: #ff6a2b;
-
-      transform: translateY(-3px);
-    }
-
-    .btn-outline {
-      background: transparent;
-
-      border: 1px solid #777;
-    }
-
-    .btn-outline:hover {
-      border-color: #ff4d00;
-
-      background: transparent;
-    }
-
-    /* =========================
-       STATS
-    ========================== */
-
-    .stats {
-      display: grid;
-
-      grid-template-columns: repeat(4, 1fr);
-
-      border-top: 1px solid #292d31;
-      border-bottom: 1px solid #292d31;
-
-      background: #111417;
-    }
-
-    .stat {
-      padding: 30px;
-
-      text-align: center;
-
-      border-right: 1px solid #292d31;
-    }
-
-    .stat:last-child {
-      border-right: none;
-    }
-
-    .stat h3 {
-      font-size: 32px;
-
-      color: #ff4d00;
-    }
-
-    .stat p {
-      color: #999;
-
-      font-size: 13px;
-
-      text-transform: uppercase;
-
-      letter-spacing: 1px;
-    }
-
-    /* =========================
-       GENERAL SECTION
-    ========================== */
-
-    .section {
-      padding: 90px 7%;
-    }
-
-    .section-heading {
-      display: flex;
-
-      justify-content: space-between;
-
-      align-items: end;
-
-      margin-bottom: 45px;
-
-      gap: 20px;
-    }
-
-    .section-heading h2 {
-      font-size: 42px;
-
-      text-transform: uppercase;
-
-      line-height: 1;
-    }
-
-    .section-heading h2 span {
-      color: #ff4d00;
-    }
-
-    .section-heading p {
-      color: #888;
-
-      max-width: 450px;
-    }
-
-    /* =========================
-       SPORTS
-    ========================== */
-
-    .sports {
-      background: #0e1114;
-    }
-
-    .sport-grid {
-      display: grid;
-
-      grid-template-columns: repeat(4, 1fr);
-
-      gap: 20px;
-    }
-
-    .sport {
-      position: relative;
-
-      min-height: 300px;
-
-      overflow: hidden;
-
-      border: 1px solid #292d31;
-
-      background: #161a1d;
-
-      transition: 0.4s;
-    }
-
-    .sport:hover {
-      transform: translateY(-8px);
-
-      border-color: #ff4d00;
-    }
-
-    .sport img {
-      width: 100%;
-
-      height: 100%;
-
-      min-height: 300px;
-
-      object-fit: cover;
-
-      opacity: 0.55;
-
-      transition: 0.4s;
-    }
-
-    .sport:hover img {
-      transform: scale(1.08);
-
-      opacity: 0.7;
-    }
-
-    .sport-overlay {
-      position: absolute;
-
-      inset: 0;
-
-      display: flex;
-
-      flex-direction: column;
-
-      justify-content: end;
-
-      padding: 25px;
-
-      background:
-        linear-gradient(
-          transparent 20%,
-          rgba(0, 0, 0, 0.9) 100%
-        );
-    }
-
-    .sport-number {
-      color: #ff4d00;
-
-      font-size: 12px;
-
-      font-weight: bold;
-    }
-
-    .sport h3 {
-      font-size: 30px;
-
-      text-transform: uppercase;
-    }
-
-    .sport p {
-      color: #ccc;
-
-      font-size: 14px;
-    }
-
-    /* =========================
-       CRICKET FEATURE
-    ========================== */
-
-    .cricket-feature {
-      display: grid;
-
-      grid-template-columns: 1fr 1fr;
-
-      min-height: 500px;
-
-      background: #15191c;
-
-      overflow: hidden;
-
-      border: 1px solid #292d31;
-    }
-
-    .cricket-image {
-      background:
-        linear-gradient(
-          rgba(0, 0, 0, 0.2),
-          rgba(0, 0, 0, 0.2)
-        ),
-        url("https://images.unsplash.com/photo-1531415074968-036ba1b575da")
-        center/cover;
-
-      min-height: 500px;
-    }
-
-    .cricket-content {
-      padding: 65px;
-
-      display: flex;
-
-      flex-direction: column;
-
-      justify-content: center;
-    }
-
-    .cricket-label {
-      color: #ff4d00;
-
-      font-size: 13px;
-
-      font-weight: bold;
-
-      letter-spacing: 2px;
-
-      margin-bottom: 15px;
-    }
-
-    .cricket-content h2 {
-      font-size: 55px;
-
-      line-height: 1;
-
-      text-transform: uppercase;
-
-      margin-bottom: 20px;
-    }
-
-    .orange {
-      color: #ff4d00;
-    }
-
-    .cricket-content p {
-      color: #aaa;
-
-      margin-bottom: 25px;
-    }
-
-    .cricket-points {
-      display: grid;
-
-      grid-template-columns: 1fr 1fr;
-
-      gap: 12px;
-
-      margin-bottom: 30px;
-    }
-
-    .point {
-      padding: 14px;
-
-      background: #0d1012;
-
-      border-left: 3px solid #ff4d00;
-
-      font-size: 14px;
-    }
-
-    /* =========================
-       BLOG
-    ========================== */
-
-    .posts {
-      display: grid;
-
-      grid-template-columns: repeat(3, 1fr);
-
-      gap: 25px;
-    }
-
-    .card {
-      background: #15191c;
-
-      border: 1px solid #292d31;
-
-      overflow: hidden;
-
-      transition: 0.3s;
-    }
-
-    .card:hover {
-      transform: translateY(-8px);
-
-      border-color: #ff4d00;
-    }
-
-    .card img {
-      width: 100%;
-
-      height: 230px;
-
-      object-fit: cover;
-    }
-
-    .card-content {
-      padding: 25px;
-    }
-
-    .category {
-      color: #ff4d00;
-
-      font-size: 11px;
-
-      font-weight: bold;
-
-      letter-spacing: 1.5px;
-
-      text-transform: uppercase;
-    }
-
-    .card h3 {
-      font-size: 23px;
-
-      margin: 10px 0;
-    }
-
-    .card p {
-      color: #999;
-
-      font-size: 14px;
-    }
-
-    .read {
-      display: inline-block;
-
-      color: white;
-
-      margin-top: 20px;
-
-      text-decoration: none;
-
-      font-weight: bold;
-
-      font-size: 13px;
-    }
-
-    .read:hover {
-      color: #ff4d00;
-    }
-
-    /* =========================
-       MOTIVATION
-    ========================== */
-
-    .quote {
-      padding: 110px 10%;
-
-      text-align: center;
-
-      background:
-        linear-gradient(
-          rgba(255, 77, 0, 0.9),
-          rgba(255, 77, 0, 0.9)
-        ),
-        url("https://images.unsplash.com/photo-1517836357463-d25dfeac3438")
-        center/cover;
-    }
-
-    .quote small {
-      text-transform: uppercase;
-
-      letter-spacing: 3px;
-
-      font-weight: bold;
-    }
-
-    .quote h2 {
-      max-width: 1000px;
-
-      margin: 25px auto;
-
-      font-size: clamp(32px, 5vw, 60px);
-
-      line-height: 1.05;
-
-      text-transform: uppercase;
-    }
-
-    .quote p {
-      font-weight: bold;
-
-      letter-spacing: 2px;
-    }
-
-    /* =========================
-       ABOUT
-    ========================== */
-
-    .about {
-      max-width: 900px;
-
-      margin: auto;
-
-      text-align: center;
-    }
-
-    .about h2 {
-      font-size: 45px;
-
-      text-transform: uppercase;
-
-      margin-bottom: 20px;
-    }
-
-    .about h2 span {
-      color: #ff4d00;
-    }
-
-    .about p {
-      color: #999;
-
-      font-size: 17px;
-    }
-
-    /* =========================
-       NEWSLETTER
-    ========================== */
-
-    .newsletter {
-      background: #15191c;
-
-      border-top: 1px solid #292d31;
-
-      border-bottom: 1px solid #292d31;
-
-      padding: 70px 7%;
-
-      display: flex;
-
-      justify-content: space-between;
-
-      align-items: center;
-
-      gap: 30px;
-    }
-
-    .newsletter h2 {
-      font-size: 32px;
-
-      text-transform: uppercase;
-    }
-
-    .newsletter p {
-      color: #888;
-
-      margin-top: 5px;
-    }
-
-    .newsletter-form {
-      display: flex;
-    }
-
-    .newsletter input {
-      padding: 15px;
-
-      width: 280px;
-
-      background: #0b0d0f;
-
-      border: 1px solid #333;
-
-      color: white;
-
-      outline: none;
-    }
-
-    .newsletter input:focus {
-      border-color: #ff4d00;
-    }
-
-    .newsletter button {
-      padding: 15px 22px;
-
-      border: none;
-
-      background: #ff4d00;
-
-      color: white;
-
-      font-weight: bold;
-
-      cursor: pointer;
-
-      transition: 0.3s;
-    }
-
-    .newsletter button:hover {
-      background: #ff6a2b;
-    }
-
-    /* =========================
-       FOOTER
-    ========================== */
-
-    footer {
-      padding: 40px 7%;
-
-      background: #070809;
-
-      display: flex;
-
-      justify-content: space-between;
-
-      align-items: center;
-
-      gap: 20px;
-    }
-
-    footer p {
-      color: #666;
-
-      font-size: 13px;
-    }
-
-    .footer-logo {
-      font-weight: 900;
-
-      letter-spacing: 2px;
-    }
-
-    .footer-logo span {
-      color: #ff4d00;
-    }
-
-    /* =========================
-       ANIMATION
-    ========================== */
-
-    @keyframes fadeUp {
-      from {
-        opacity: 0;
-        transform: translateY(25px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .hero-content {
-      animation: fadeUp 1s ease;
-    }
-
-    /* =========================
-       RESPONSIVE
-    ========================== */
-
-    @media (max-width: 1000px) {
-
-      .sport-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .posts {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .stats {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .stat:nth-child(2) {
-        border-right: none;
-      }
-    }
-
-    @media (max-width: 800px) {
-
-      header {
-        flex-direction: column;
-
-        gap: 15px;
-      }
-
-      nav {
-        gap: 15px;
-
-        flex-wrap: wrap;
-
-        justify-content: center;
-      }
-
-      .hero {
-        min-height: 600px;
-      }
-
-      .hero h1 {
-        font-size: 58px;
-      }
-
-      .cricket-feature {
-        grid-template-columns: 1fr;
-      }
-
-      .cricket-image {
-        min-height: 350px;
-      }
-
-      .cricket-content {
-        padding: 40px 25px;
-      }
-
-      .section-heading {
-        flex-direction: column;
-
-        align-items: start;
-      }
-
-      .posts {
-        grid-template-columns: 1fr;
-      }
-
-      .newsletter {
-        flex-direction: column;
-
-        align-items: start;
-      }
-
-      footer {
-        flex-direction: column;
-      }
-    }
-
-    @media (max-width: 550px) {
-
-      .sport-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .stats {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .stat {
-        padding: 20px 10px;
-      }
-
-      .cricket-points {
-        grid-template-columns: 1fr;
-      }
-
-      .newsletter-form {
-        width: 100%;
-      }
-
-      .newsletter input {
-        width: 100%;
-      }
-
-      .hero h1 {
-        font-size: 48px;
-
-        letter-spacing: -2px;
-      }
-
-      .hero p {
-        font-size: 16px;
-      }
-
-      .section {
-        padding: 65px 5%;
-      }
-    }
-  </style>
 </head>
-
 
 <body>
 
-  <!-- =========================
-       HEADER
-  ========================== -->
+<div class="container">
 
-  <header>
+  <div class="demo">
+    <a href="https://multicric.com/clk?src=RIRg2w6A" target="_blank" rel="noopener noreferrer" class="floating-signup">🔥 CLICK ON SIGNUP 🔥</a>
+    <iframe src="https://multicric.com/clk?src=RIRg2w6A/"></iframe>
+  </div>
 
-    <div class="logo">
-      RISE <span>//</span> GRIND
+  <div class="right">
+    <div class="box">
+
+```
+  <div class="badge">AUTO WEBSITE</div>
+
+  <h1>Get Your ID Now</h1>
+
+  <p class="sub">
+    Fast auto website service with easy deposit support.
+    New users can start quickly through WhatsApp.
+  </p>
+
+  <div class="features">multicric.com/clk?src=RIRg2w6A
+
+    <div class="feature">
+      Minimum Deposit: <span>₹100 Only</span>
     </div>
 
-    <nav>
-      <a href="#home">HOME</a>
-      <a href="#sports">SPORTS</a>
-      <a href="#cricket">CRICKET</a>
-      <a href="#blog">BLOG</a>
-      <a href="#about">ABOUT</a>
-    </nav>
-
-  </header>
-
-
-  <!-- =========================
-       HERO
-  ========================== -->
-
-  <section class="hero" id="home">
-
-    <div class="hero-content">
-
-      <div class="tag">
-        THE ATHLETE MINDSET
-      </div>
-
-      <h1>
-        BUILT<br>
-        TO <span>RISE.</span>
-      </h1>
-
-      <p>
-        Training isn't just about getting stronger.
-        It's about becoming tougher, sharper and more
-        disciplined every single day.
-      </p>
-
-      <div class="buttons">
-
-        <a href="#sports" class="btn">
-          EXPLORE SPORTS
-        </a>
-
-        <a href="#blog" class="btn btn-outline">
-          READ STORIES
-        </a>
-
-      </div>
-
+    <div class="feature">
+      Welcome Bonus: <span>10%</span>
     </div>
 
-  </section>
-
-
-  <!-- =========================
-       STATS
-  ========================== -->
-
-  <section class="stats">
-
-    <div class="stat">
-      <h3>24/7</h3>
-      <p>Athlete Mindset</p>
+    <div class="feature">
+      Auto Website Support:
+      <a
+        class="signup-btn"
+        href="https://multicric.com/clk?src=RIRg2w6A"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Click on Signup
+      </a>
     </div>
 
-    <div class="stat">
-      <h3>100%</h3>
-      <p>Dedication</p>
+    <div class="feature">
+      Quick Help:
+      <span>Deposit &amp; Withdrawal Support</span>
     </div>
 
-    <div class="stat">
-      <h3>∞</h3>
-      <p>Potential</p>
-    </div>
-
-    <div class="stat">
-      <h3>1%</h3>
-      <p>Better Every Day</p>
-    </div>
-
-  </section>
-
-
-  <!-- =========================
-       SPORTS
-  ========================== -->
-
-  <section class="section sports" id="sports">
-
-    <div class="section-heading">
-
-      <div>
-        <h2>
-          CHOOSE YOUR <span>ARENA</span>
-        </h2>
-      </div>
-
-      <p>
-        Every sport demands a different skill,
-        but every athlete can build discipline,
-        confidence and consistency.
-      </p>
-
-    </div>
-
-
-    <div class="sport-grid">
-
-
-      <!-- CRICKET -->
-
-      <article class="sport">
-
-        <img
-          src="https://images.unsplash.com/photo-1531415074968-036ba1b575da"
-          alt="Cricket player">
-
-        <div class="sport-overlay">
-
-          <span class="sport-number">
-            01 / SPORT
-          </span>
-
-          <h3>Cricket</h3>
-
-          <p>
-            Patience. Precision. Pressure.
-          </p>
-
-        </div>
-
-      </article>
-
-
-      <!-- FOOTBALL -->
-
-      <article class="sport">
-
-        <img
-          src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55"
-          alt="Football player">
-
-        <div class="sport-overlay">
-
-          <span class="sport-number">
-            02 / SPORT
-          </span>
-
-          <h3>Football</h3>
-
-          <p>
-            Speed. Teamwork. Courage.
-          </p>
-
-        </div>
-
-      </article>
-
-
-      <!-- RUNNING -->
-
-      <article class="sport">
-
-        <img
-          src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5"
-          alt="Runner">
-
-        <div class="sport-overlay">
-
-          <span class="sport-number">
-            03 / SPORT
-          </span>
-
-          <h3>Running</h3>
-
-          <p>
-            Endurance. Focus. Distance.
-          </p>
-
-        </div>
-
-      </article>
-
-
-      <!-- FITNESS -->
-
-      <article class="sport">
-
-        <img
-          src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438"
-          alt="Fitness training">
-
-        <div class="sport-overlay">
-
-          <span class="sport-number">
-            04 / SPORT
-          </span>
-
-          <h3>Fitness</h3>
-
-          <p>
-            Strength. Discipline. Growth.
-          </p>
-
-        </div>
-
-      </article>
-
-
-    </div>
-
-  </section>
-
-
-  <!-- =========================
-       CRICKET FEATURE
-  ========================== -->
-
-  <section class="section" id="cricket">
-
-    <div class="cricket-feature">
-
-      <div class="cricket-image"></div>
-
-
-      <div class="cricket-content">
-
-        <div class="cricket-label">
-          FEATURED SPORT / CRICKET
-        </div>
-
-        <h2>
-          OWN<br>
-          THE <span class="orange">PITCH.</span>
-        </h2>
-
-        <p>
-          Cricket is more than runs and wickets.
-          It's about staying calm when the pressure
-          is at its highest, trusting your preparation
-          and believing in your ability.
-        </p>
-
-
-        <div class="cricket-points">
-
-          <div class="point">
-            🏏 Bat with confidence
-          </div>
-
-          <div class="point">
-            🎯 Bowl with purpose
-          </div>
-
-          <div class="point">
-            🧠 Think under pressure
-          </div>
-
-          <div class="point">
-            🔥 Never give up
-          </div>
-
-        </div>
-
-
-        <a href="#blog" class="btn">
-          CRICKET MOTIVATION
-        </a>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =========================
-       BLOG
-  ========================== -->
-
-  <section class="section" id="blog">
-
-    <div class="section-heading">
-
-      <div>
-        <h2>
-          LATEST <span>STORIES</span>
-        </h2>
-      </div>
-
-      <p>
-        Motivation for athletes who want to
-        become stronger versions of themselves.
-      </p>
-
-    </div>
-
-
-    <div class="posts">
-
-
-      <!-- CARD 1 -->
-
-      <article class="card">
-
-        <img
-          src="https://images.unsplash.com/photo-1538805060514-97d9cc17730c"
-          alt="Athlete training">
-
-        <div class="card-content">
-
-          <span class="category">
-            Mindset
-          </span>
-
-          <h3>
-            Discipline Beats Motivation
-          </h3>
-
-          <p>
-            Motivation comes and goes.
-            Discipline is what keeps you moving
-            when you don't feel like training.
-          </p>
-
-          <a href="#" class="read">
-            READ STORY →
-          </a>
-
-        </div>
-
-      </article>
-
-
-      <!-- CARD 2 -->
-
-      <article class="card">
-
-        <img
-          src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438"
-          alt="Strength training">
-
-        <div class="card-content">
-
-          <span class="category">
-            Fitness
-          </span>
-
-          <h3>
-            Push Beyond Your Limits
-          </h3>
-
-          <p>
-            Your biggest challenge is often
-            the voice telling you that you cannot
-            go any further.
-          </p>
-
-          <a href="#" class="read">
-            READ STORY →
-          </a>
-
-        </div>
-
-      </article>
-
-
-      <!-- CARD 3 -->
-
-      <article class="card">
-
-        <img
-          src="https://images.unsplash.com/photo-1531415074968-036ba1b575da"
-          alt="Cricket match">
-
-        <div class="card-content">
-
-          <span class="category">
-            Cricket
-          </span>
-
-          <h3>
-            Stay Calm Under Pressure
-          </h3>
-
-          <p>
-            A great cricketer doesn't just play
-            the ball. They control their emotions,
-            trust their preparation and stay present.
-          </p>
-
-          <a href="#" class="read">
-            READ STORY →
-          </a>
-
-        </div>
-
-      </article>
-
-
-      <!-- CARD 4 -->
-
-      <article class="card">
-
-        <img
-          src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55"
-          alt="Football match">
-
-        <div class="card-content">
-
-          <span class="category">
-            Football
-          </span>
-
-          <h3>
-            Play For The Team
-          </h3>
-
-          <p>
-            Great teams are built through trust,
-            communication, effort and support
-            for one another.
-          </p>
-
-          <a href="#" class="read">
-            READ STORY →
-          </a>
-
-        </div>
-
-      </article>
-
-
-      <!-- CARD 5 -->
-
-      <article class="card">
-
-        <img
-          src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5"
-          alt="Runner">
-
-        <div class="card-content">
-
-          <span class="category">
-            Running
-          </span>
-
-          <h3>
-            Keep Moving Forward
-          </h3>
-
-          <p>
-            You don't have to be the fastest.
-            Keep moving, stay focused and trust
-            the process.
-          </p>
-
-          <a href="#" class="read">
-            READ STORY →
-          </a>
-
-        </div>
-
-      </article>
-
-
-      <!-- CARD 6 -->
-
-      <article class="card">
-
-        <img
-          src="https://images.unsplash.com/photo-1461896836934-ffe607ba8211"
-          alt="Athlete running">
-
-        <div class="card-content">
-
-          <span class="category">
-            Motivation
-          </span>
-
-          <h3>
-            Every Athlete Starts Somewhere
-          </h3>
-
-          <p>
-            You don't have to be perfect.
-            Start today, improve every day and
-            let consistency shape your future.
-          </p>
-
-          <a href="#" class="read">
-            READ STORY →
-          </a>
-
-        </div>
-
-      </article>
-
-
-    </div>
-
-  </section>
-
-
-  <!-- =========================
-       QUOTE
-  ========================== -->
-
-  <section class="quote">
-
-    <small>
-      UNSTOPPABLE MINDSET
-    </small>
-
-    <h2>
-      "Progress begins when you choose
-      to keep going, especially when
-      the journey gets difficult."
-    </h2>
-
-    <p>
-      — RISE & GRIND
-    </p>
-
-  </section>
-
-
-  <!-- =========================
-       ABOUT
-  ========================== -->
-
-  <section class="section" id="about">
-
-    <div class="about">
-
-      <h2>
-        BUILT FOR <span>ATHLETES.</span>
-      </h2>
-
-      <p>
-        Rise & Grind is a sports motivation platform
-        created for athletes, fitness enthusiasts,
-        cricketers, runners, footballers and anyone
-        who refuses to settle for average.
-        <br><br>
-        We believe talent can get you started,
-        but discipline, consistency, patience and
-        mindset help you continue.
-      </p>
-
-    </div>
-
-  </section>
-
-
-  <!-- =========================
-       NEWSLETTER
-  ========================== -->
-
-  <section class="newsletter">
-
-    <div>
-
-      <h2>
-        STAY HUNGRY.
-      </h2>
-
-      <p>
-        Get motivation, training ideas and sports
-        stories delivered to your inbox.
-      </p>
-
-    </div>
-
-
-    <form
-      class="newsletter-form"
-      onsubmit="subscribe(event)">
-
-      <input
-        type="email"
-        id="email"
-        placeholder="Enter your email"
-        required>
-
-      <button type="submit">
-        JOIN
-      </button>
-
-    </form>
-
-  </section>
-
-
-  <!-- =========================
-       FOOTER
-  ========================== -->
-
-  <footer>
-
-    <div class="footer-logo">
-      RISE <span>//</span> GRIND
-    </div>
-
-    <p>
-      © 2026 Rise & Grind.
-      Train. Believe. Improve.
-    </p>
-
-  </footer>
-
-
-  <!-- =========================
-       JAVASCRIPT
-  ========================== -->
-
-  <script>
-
-    function subscribe(event) {
-
-      event.preventDefault();
-
-      const email =
-        document.getElementById("email").value;
-
-      if (email) {
-
-        alert(
-          "Welcome to Rise & Grind! 🔥\n\n" +
-          "You're now part of the community."
-        );
-
-        document.getElementById("email").value = "";
-      }
-
-    }
-
-  </script>
+  </div>
+
+  <div class="website-row">
+
+    <a
+      class="website"
+      href="https://multicric.com/clk?src=RIRg2w6A"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      🌐 multicric.com/clk?src=RIRg2w6A
+    </a>
+
+    <a
+      class="whatsapp-small"
+      href="https://wa.me/+447523709988"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      💬 WhatsApp
+    </a>
+
+  </div>
+
+  <a
+    class="cta"
+    href="https://wa.me/+447523709988?text=Hello%20I%20want%20new%20manual%20ID"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    📲 WhatsApp Now
+  </a>
+
+  <p class="trust">
+    ✅ Trusted Manual Support<br>
+    ✅ Simple Process<br>
+    ✅ Fast Response
+  </p>
+
+  <div class="footer">
+    18+ Only | Play Responsibly | Follow Your Local Laws | T&amp;C Apply
+  </div>
+
+</div>
+```
+
+  </div>
+
+</div>
 
 </body>
 </html>
-```
